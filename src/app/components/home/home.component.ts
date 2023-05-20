@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import Swal from 'sweetalert2';
+
+declare let window: any;
 
 @Component({
   selector: 'app-home',
@@ -15,9 +18,34 @@ export class HomeComponent implements OnInit {
     { brand: 'teste', model: 'civic', year: 1998 },
     { brand: 'teste', model: 'civic', year: 1998 },
     { brand: 'teste', model: 'civic', year: 1998 },
+    { brand: 'teste', model: 'civic', year: 1998 },
+    { brand: 'teste', model: 'civic', year: 1998 },
+    { brand: 'teste', model: 'civic', year: 1998 },
+    { brand: 'teste', model: 'civic', year: 1998 },
+    { brand: 'teste', model: 'civic', year: 1998 },
+    { brand: 'teste', model: 'civic', year: 1998 },
+    { brand: 'teste', model: 'civic', year: 1998 },
   ];
+
+  formModal: any;
+
+  newBrand: string = '';
+  newModel: string = '';
+  newYear!: number;
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.formModal = new window.bootstrap.Modal(
+      document.getElementById('exampleModal1')
+    );
+  }
+
+  openModal() {
+    this.formModal.show();
+  }
+
+  closeModal() {
+    this.formModal.hide();
+  }
 }

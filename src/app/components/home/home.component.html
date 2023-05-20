@@ -2,7 +2,7 @@
   <div class="row justify-content-between align-items-baseline">
     <div class="col"><app-usercard></app-usercard></div>
     <div class="col-2">
-      <button class="btn btn-success">Add Car</button>
+      <button class="btn btn-success" (click)="openModal()">Add Car</button>
     </div>
   </div>
 
@@ -22,7 +22,53 @@
     </div>
   </div>
 
-  <div class="row mt-5 justify-content-around">
-    <div class="col-md-2 col-sm-4"><app-carcard></app-carcard></div>
+  <div
+    class="row mt-5 justify-content-even align-items-center justify-itens-center"
+  >
+    <div
+      class="col-md-3 col-sm-5 p-4 text-center"
+      *ngFor="let car of cars; index as index"
+    >
+      <app-carcard> </app-carcard>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>Add new car</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col">
+            <label>Brand</label>
+            <input class="form-control" type="text" [(ngModel)]="newBrand" />
+          </div>
+          <div class="col">
+            <label>Model</label>
+            <input class="form-control" type="text" [(ngModel)]="newModel" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <label>Year</label>
+            <input
+              class="form-control"
+              type="number"
+              [(ngModel)]="newYear"
+              min="0"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-success">Confirm</button>
+      </div>
+    </div>
   </div>
 </div>

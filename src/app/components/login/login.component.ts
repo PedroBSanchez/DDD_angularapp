@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 import Swal from 'sweetalert2';
 
-declare var window: any;
+declare let window: any;
 
 @Component({
   selector: 'app-login',
@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit {
     this.formModal = new window.bootstrap.Modal(
       document.getElementById('exampleModal')
     );
+
+    //this.router.navigate(['/home']);
   }
 
   login(
@@ -43,6 +45,7 @@ export class LoginComponent implements OnInit {
       .pipe(
         catchError((error) => {
           const statusCode = error.status;
+
           this.loading = false;
           Swal.fire({
             icon: 'error',

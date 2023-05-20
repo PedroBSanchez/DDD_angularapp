@@ -1,7 +1,7 @@
 .card-car {
-  background: #222;
+  background: rgba(34, 34, 34, 0.622);
   border-radius: 10px;
-  box-shadow: 1px 5px 60px 0px #ffffff;
+  box-shadow: 1px 5px 60px 0px #ffffff72;
 }
 
 .card-remove-div {
