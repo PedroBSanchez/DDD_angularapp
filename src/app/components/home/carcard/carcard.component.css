@@ -1,0 +1,12 @@
+.card-car {
+  background: #222;
+  border-radius: 10px;
+  box-shadow: 1px 5px 60px 0px #ffffff;
+}
+
+.card-remove-div {
+  background-color: rgb(119, 45, 45);
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  width: 15%;
+}
