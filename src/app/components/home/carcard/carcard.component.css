@@ -10,3 +10,11 @@
   border-bottom-left-radius: 10px;
   width: 15%;
 }
+
+.card-update-div {
+  background-color: rgb(41, 55, 90);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: 15%;
+  margin-right: 4px;
+}

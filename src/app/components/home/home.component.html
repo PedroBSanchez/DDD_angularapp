@@ -1,35 +1,41 @@
-<div class="container-fluid p-5 home-background">
-  <div class="row justify-content-between align-items-baseline">
-    <div class="col"><app-usercard></app-usercard></div>
-    <div class="col-2">
-      <button class="btn btn-success" (click)="openModal()">Add Car</button>
+<div class="home-background">
+  <div class="container-fluid p-5">
+    <div class="row justify-content-between align-items-baseline">
+      <div class="col"><app-usercard></app-usercard></div>
+      <div class="col-2">
+        <button class="btn btn-success" (click)="openModal()">Add Car</button>
+      </div>
     </div>
-  </div>
 
-  <hr class="border border border-2 opacity-50" />
-  <div class="row mt-5 justify-content-center">
-    <div class="col-1">
-      <label>Filter</label>
-      <select class="form-control bg-dark text-white" [(ngModel)]="filter">
-        <option value="1">Brand</option>
-        <option value="2">Model</option>
-        <option value="3">Year</option>
-      </select>
+    <hr class="border border border-2 opacity-50" />
+    <div class="row mt-5 justify-content-center">
+      <div class="col-1">
+        <label>Filter</label>
+        <select class="form-control bg-dark text-white" [(ngModel)]="filter">
+          <option value="1">Brand</option>
+          <option value="2">Model</option>
+        </select>
+      </div>
+      <div class="col-4">
+        <label class="text-left">Search</label>
+        <input class="form-control bg-dark text-white" [(ngModel)]="search" />
+      </div>
     </div>
-    <div class="col-4">
-      <label class="text-left">Search</label>
-      <input class="form-control bg-dark text-white" [(ngModel)]="search" />
-    </div>
-  </div>
 
-  <div
-    class="row mt-5 justify-content-even align-items-center justify-itens-center"
-  >
     <div
-      class="col-md-3 col-sm-5 p-4 text-center"
-      *ngFor="let car of cars; index as index"
+      class="row mt-5 justify-content-even align-items-center justify-itens-center"
     >
-      <app-carcard> </app-carcard>
+      <div class="col-md-3 col-sm-5 p-4 text-center" *ngFor="let car of cars">
+        <app-carcard
+          [deleteCarFunc]="deleteCar"
+          [updateCarFunc]="updateCar"
+          [model]="car.model"
+          [brand]="car.name"
+          [year]="car.year"
+          [carId]="car.id"
+        >
+        </app-carcard>
+      </div>
     </div>
   </div>
 </div>
@@ -67,7 +73,9 @@
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Close
         </button>
-        <button type="button" class="btn btn-success">Confirm</button>
+        <button type="button" class="btn btn-success" (click)="addCar()">
+          Confirm
+        </button>
       </div>
     </div>
   </div>

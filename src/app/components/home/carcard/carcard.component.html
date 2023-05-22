@@ -1,11 +1,66 @@
 <div class="card-car">
   <div class="d-flex justify-content-end">
-    <div class="card-remove-div text-center">E</div>
+    <div class="card-update-div text-center">
+      <fa-icon
+        [icon]="faEdit"
+        class="text-white"
+        style="cursor: pointer"
+        (click)="openModal()"
+      ></fa-icon>
+    </div>
+    <div class="card-remove-div text-center">
+      <fa-icon
+        [icon]="faTrash"
+        class="text-white"
+        style="cursor: pointer"
+        (click)="removeCar()"
+      ></fa-icon>
+    </div>
   </div>
   <div class="row text-center mt-3">
-    <p class="text-white">Honda</p>
+    <p class="text-white">{{ brand }}</p>
   </div>
   <div class="row text-center mt-1">
-    <p class="text-white">Civic - 1998</p>
+    <p class="text-white">{{ model }} - {{ year }}</p>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4>Update Car</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col">
+            <label>Brand</label>
+            <input class="form-control" type="text" [(ngModel)]="brandUpdate" />
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-8">
+            <label>Model</label>
+            <input class="form-control" type="text" [(ngModel)]="modelUpdate" />
+          </div>
+          <div class="col">
+            <label>Year</label>
+            <input
+              class="form-control"
+              type="number"
+              [(ngModel)]="yearUpdate"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-success" (click)="updateCarFunc()">
+          Confirm
+        </button>
+      </div>
+    </div>
   </div>
 </div>
