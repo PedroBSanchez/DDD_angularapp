@@ -6,8 +6,6 @@ import { CarService } from 'src/app/services/car.service';
 
 import Swal from 'sweetalert2';
 
-declare let window: any;
-
 @Component({
   selector: 'app-carcard',
   templateUrl: './carcard.component.html',
@@ -29,14 +27,20 @@ export class CarcardComponent implements OnInit {
   faTrash = faTrash;
   faEdit = faEdit;
 
+  isUpdate: boolean = false;
+
   formModal: any;
 
   constructor(private carService: CarService) {}
 
   ngOnInit(): void {
-    this.formModal = new window.bootstrap.Modal(
-      document.getElementById('exampleModal1')
-    );
+    this.modelUpdate = this.model;
+    this.brandUpdate = this.brand;
+    this.yearUpdate = this.year;
+  }
+
+  test() {
+    console.log(this.carId);
   }
 
   removeCar() {
@@ -52,22 +56,22 @@ export class CarcardComponent implements OnInit {
     });
   }
 
-  updateCar = () => {
+  attCar() {
+    console.log(this.carId);
     this.updateCarFunc(
       this.carId,
       this.modelUpdate,
       this.brandUpdate,
       this.yearUpdate
     );
+    this.closeUpdate();
+  }
 
-    this.closeModal();
+  openUpdate() {
+    this.isUpdate = true;
+  }
+
+  closeUpdate = () => {
+    this.isUpdate = false;
   };
-
-  openModal() {
-    this.formModal.show();
-  }
-
-  closeModal() {
-    this.formModal.hide();
-  }
 }

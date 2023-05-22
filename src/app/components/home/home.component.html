@@ -12,13 +12,17 @@
       <div class="col-1">
         <label>Filter</label>
         <select class="form-control bg-dark text-white" [(ngModel)]="filter">
-          <option value="1">Brand</option>
-          <option value="2">Model</option>
+          <option value="1">Model</option>
+          <option value="2">Brand</option>
         </select>
       </div>
       <div class="col-4">
         <label class="text-left">Search</label>
-        <input class="form-control bg-dark text-white" [(ngModel)]="search" />
+        <input
+          class="form-control bg-dark text-white"
+          [(ngModel)]="search"
+          (ngModelChange)="getAll()"
+        />
       </div>
     </div>
 
@@ -27,12 +31,12 @@
     >
       <div class="col-md-3 col-sm-5 p-4 text-center" *ngFor="let car of cars">
         <app-carcard
+          [carId]="car.id"
           [deleteCarFunc]="deleteCar"
           [updateCarFunc]="updateCar"
           [model]="car.model"
           [brand]="car.name"
           [year]="car.year"
-          [carId]="car.id"
         >
         </app-carcard>
       </div>

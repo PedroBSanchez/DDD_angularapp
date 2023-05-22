@@ -18,3 +18,8 @@
   width: 15%;
   margin-right: 4px;
 }
+
+.modal-update {
+  background-color: rgb(34, 34, 34);
+  border-radius: 12px;
+}

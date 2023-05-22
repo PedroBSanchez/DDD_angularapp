@@ -5,7 +5,7 @@
         [icon]="faEdit"
         class="text-white"
         style="cursor: pointer"
-        (click)="openModal()"
+        (click)="openUpdate()"
       ></fa-icon>
     </div>
     <div class="card-remove-div text-center">
@@ -25,42 +25,33 @@
   </div>
 </div>
 
-<div class="modal fade" id="exampleModal1">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4>Update Car</h4>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col">
-            <label>Brand</label>
-            <input class="form-control" type="text" [(ngModel)]="brandUpdate" />
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-8">
-            <label>Model</label>
-            <input class="form-control" type="text" [(ngModel)]="modelUpdate" />
-          </div>
-          <div class="col">
-            <label>Year</label>
-            <input
-              class="form-control"
-              type="number"
-              [(ngModel)]="yearUpdate"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Close
-        </button>
-        <button type="button" class="btn btn-success" (click)="updateCarFunc()">
-          Confirm
-        </button>
-      </div>
+<div
+  class="position-absolute top-50 start-50 translate-middle p-2 modal-update"
+  *ngIf="isUpdate"
+>
+  <div class="row">
+    <div class="col">
+      <label class="text-white">Brand</label>
+      <input class="form-control" type="text" [(ngModel)]="brandUpdate" />
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-8">
+      <label class="text-white">Model</label>
+      <input class="form-control" type="text" [(ngModel)]="modelUpdate" />
+    </div>
+    <div class="col">
+      <label class="text-white">Year</label>
+      <input class="form-control" type="number" [(ngModel)]="yearUpdate" />
+    </div>
+  </div>
+
+  <div class="d-flex flex-row-reverse mt-3">
+    <div class="p-2">
+      <button class="btn btn-success" (click)="attCar()">Confirm</button>
+    </div>
+    <div class="p-2">
+      <button class="btn btn-secondary" (click)="closeUpdate()">Close</button>
     </div>
   </div>
 </div>
